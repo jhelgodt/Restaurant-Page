@@ -1,32 +1,19 @@
-import ".style.css";
-import loadHome from "./home";
-import loadMenu from "./menu";
-import loadContact from ".contact";
+import "./style.css";
+import { loadHome } from "./home";
+import { loadContact } from "./contact";
+import { loadMenu } from "./menu";
 
 function init() {
   const homeBtn = document.getElementById("home");
   const menuBtn = document.getElementById("menu");
   const contactBtn = document.getElementById("contact");
 
-  homeBtn.addEventListener("click", () => {
-    clearContent();
-    loadHome();
-  });
+  homeBtn.addEventListener("click", loadHome);
+  menuBtn.addEventListener("click", loadMenu);
+  contactBtn.addEventListener("click", loadContact);
 
-  menuBtn.addEventListener("click", () => {
-    clearContent();
-    loadHomeN();
-  });
-
-  contactBtn.addEventListener("click", () => {
-    clearContent();
-    loadContact();
-  });
-
-  loadHome(); // Load home page initially
+  loadHome(); // Load home tab by default
 }
 
-function clearContent() {
-  const content = document.getElementById("content");
-  content.innerHTML = "";
-}
+init();
+console.log("Webpack is working!");
